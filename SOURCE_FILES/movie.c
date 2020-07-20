@@ -16,9 +16,11 @@ PtMovie createMovie(char *id, char *title, int year, char *genre,
     return m;
 }
 
+
 PtMovie createEmptyMovie() {
     return createMovie("0", "0", 0, "0", 0, "0", "0");
 }
+
 
 void copyMovie(PtMovie dest, PtMovie src) {
     dest = (PtMovie) malloc(sizeof(Movie));
@@ -31,6 +33,7 @@ void copyMovie(PtMovie dest, PtMovie src) {
     strcpy(dest->director, src->director);
 }
 
+
 void printPtMovie(PtMovie movie) {
     printf("id: %-9s | ", movie->id);
     printf("title: %-34s | ", movie->title);
@@ -40,6 +43,7 @@ void printPtMovie(PtMovie movie) {
     printf("country: %-13s | ", movie->country);
     printf("director: %s\n", movie->director);
 }
+
 
 void printMovie(Movie movie) {
     printf("id: %-9s | ", movie.id);
