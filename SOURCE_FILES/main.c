@@ -49,7 +49,7 @@ int main(int argc, char** argv) {
 	PtMap map = NULL;
 
 	/* interpretador de comandos */
-	char command[20] = "top5"; // DEBUG
+	char command[20]; // DEBUG
 	
 	// char command[20];
 	int quit = 0;
@@ -129,35 +129,40 @@ int main(int argc, char** argv) {
 }
 
 void rating(PtList list, PtMap map) {
-	int lSize, tempListSize = 0;
-	double minScore, maxScore, mScore, mJScore, mJ1Score = 0.0;
+	int lSize, tempListSize, tLSize = 0;
+	double minScore, maxScore, mScore, mJScore, mMaxScore = 0.0;
 	PtMovie m = createEmptyMovie();
+	PtMovie mI = createEmptyMovie();
+	PtMovie mMax = createEmptyMovie();
 	PtMovie mJ = createEmptyMovie();
-	PtMovie mJ1 = createEmptyMovie();
-	PtMovie temp = createEmptyMovie();
+	PtMovie mTemp = createEmptyMovie();
+	PtMovie trash = createEmptyMovie();
 	PtRating r = createEmptyRating();
+	PtRating ratI = createEmptyRating();
+	PtRating ratMax = createEmptyRating();
 	PtRating ratJ = createEmptyRating();
-	PtRating ratJ1 = createEmptyRating();
-	PtList temp = listCreate(1);
+	PtList listTemp = listCreate(1);
 
 	while ((minScore < 0.0) || (minScore >= 10.0)) {
 		printf("\nIntroduza o limite mínimo de pontuação: ");
-		scanf("%f", &minScore);
+		scanf("%lf", &minScore);
 		if (minScore < 0.0) {
 			printf("\nPor favor introduza um número maior ou igual a 0.0\n");
 		} else if (minScore >= 10.0) {
 			printf("\nPor favor introduza um número menor que 10.0\n");
 		}
 	}
+	printf("min: %.1lf", minScore);
 	while ((maxScore <= 0.0) || (maxScore > 10)) {
 		printf("\nIntroduza o limite máximo de pontuação: ");
-		scanf("%f", &maxScore);
+		scanf("%lf", &maxScore);
 		if (maxScore <= 0.0) {
 			printf("\nPor favor introduza um número maior que 0.0\n");
 		} else if (maxScore > 10.0) {
 			printf("\nPor favor introduza um número menor ou igual a 10.0\n");
 		}
 	}
+	printf("max: %.1lf", maxScore);
 
 	listSize(list, &lSize);
 
@@ -166,31 +171,41 @@ void rating(PtList list, PtMap map) {
 		mapGet(map, createNewKey(m->id), r);
 		mScore = r->score;
 		if ((mScore >= minScore) && (mScore <= maxScore)) {
-			listAdd(temp, 0, *m);
+			listAdd(listTemp, 0, *m);
 		}
 	}
 
 	// Sort movies by score (and, in last case, alphabetically)
 	// BubbleSort
-	listSize(temp, &tempListSize);
+	listSize(listTemp, &tempListSize);
+	tLSize = tempListSize;
+	if (tempListSize > 25) {
+		tLSize = 25;
+	}
 
-	// if (/*condition*/) {
-	// 	/*code*/
-	// }
-
-	for (int i=0; i<tempListSize; i++) {
+	for (int i=0; i<tLSize; i++) {
 		int maxIndex = i;
 		for (int j=i; j<tempListSize; j++) {
-			listGet(temp, j, mJ);
-			listGet(temp, j+1, mJ1);
+			// Procurar filme com maior pontuação
+			listGet(listTemp, i, mI);
+			listGet(listTemp, maxIndex, mMax);
+			listGet(listTemp, j, mJ);
+			mapGet(map, createNewKey(mI->id), ratI);
+			mapGet(map, createNewKey(mMax->id), ratMax);
 			mapGet(map, createNewKey(mJ->id), ratJ);
-			mapGet(map, createNewKey(mJ1->id), ratJ1);
 			mJScore = ratJ->score;
-			mJ1Score = ratJ1->score;
-			if (mJScore < mJ1Score) {
-				
+			mMaxScore = ratMax->score;
+			if ((mJScore == mMaxScore) && (strcasecmp(mJ->title, mMax->title) < 0)) { // Ordenar alfabeticamente no caso de terem a mesma pontuação
+				maxIndex = j;
+			} else if (mJScore > mMaxScore) {
+				maxIndex = j;
 			}
 		}
+		// Swap
+		listSet(listTemp, i, *mMax, mTemp);
+		listSet(listTemp, maxIndex, *mTemp, trash);
+		printPtMovie(mMax);
+		printPtRating(ratMax);
 	}
 
 }
