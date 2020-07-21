@@ -26,7 +26,7 @@ typedef char String[255];
 int equalsStringIgnoreCase(char str1[], char str2[]);
 
 /**
- * @brief This methos prints the commands menu.
+ * @brief This function prints the commands menu.
  * 
  */
 void printCommandsMenu();
@@ -45,12 +45,6 @@ int main(int argc, char** argv) {
 	
 	// char command[20];
 	int quit = 0;
-	
-
-	loadm(&list); // DEBUG
-	loadr(&map); // DEBUG
-	country(list, map);
-
 
 	setlocale(LC_ALL, "PT");
 	while (!quit) {
@@ -67,45 +61,33 @@ int main(int argc, char** argv) {
 		}
 		else if (equalsStringIgnoreCase(command, "LOADM")) {
 			loadm(&list);
-			/* invocação da função responsável pela respetiva
-			funcionalidade. Remover printf seguinte após implementação */
-			// printf("Comando LOADM nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "LOADR")) {
 			loadr(&map);
-			/* invocação da função responsável pela respetiva
-			funcionalidade. Remover printf seguinte após implementação */
-			// printf("Comando LOADR nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "CLEAR")) {
 			clear(list, map);
 		}
 		else if (equalsStringIgnoreCase(command, "TOP5")) {
 			top5(list, map);
-			printf("Comando TOP5 nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "RATING")) {
 			rating(list, map);
-			// printf("Comando RATING nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "SAMEDIR")) {
 			sameDir(list);
-			// printf("Comando SAMEDIR nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "VOTERS")) {
 			printf("Comando VOTERS nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "COUNTRY")) {
 			country(list, map);
-			// printf("Comando COUNTRY nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "YEAR")) {
 			year(list, map);
-			// printf("Comando YEAR nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "MATRIX")) {
 			matrix(list);
-			// printf("Comando MATRIX nao implementado.\n");
 		}	
 		else if (equalsStringIgnoreCase(command, "PREDICTION")) {
 			printf("Comando PREDICTION nao implementado.\n");

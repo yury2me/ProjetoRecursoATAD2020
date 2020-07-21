@@ -78,7 +78,6 @@ void rating(PtList list, PtMap map) {
 			printf("\nPor favor introduza um número menor que 10.0\n");
 		}
 	} while ((minScore < 0.0) || (minScore >= 10.0));
-	// printf("min: %g", minScore); // DEBUG
 	do {
 		printf("Introduza o limite máximo de pontuação: ");
 		scanf("%lf", &maxScore);
@@ -88,7 +87,6 @@ void rating(PtList list, PtMap map) {
 			printf("\nPor favor introduza um número menor ou igual a 10.0\n");
 		}
 	} while ((maxScore <= 0.0) || (maxScore > 10));
-	// printf("max: %g", maxScore); // DEBUG
 
 	listSize(list, &lSize);
 
@@ -131,8 +129,7 @@ void rating(PtList list, PtMap map) {
 		// Swap
 		listSet(listTemp, i, *mMax, mTemp);
 		listSet(listTemp, maxIndex, *mTemp, trash);
-		printPtMovie(mMax); // DEBUG
-		// printPtRating(ratMax); // DEBUG
+		printPtMovie(mMax);
 	}
 
 }
@@ -238,7 +235,6 @@ int getMatrixCellValue(PtList list, int year, char *genre) {
 		listGet(list, i, &m);
 		if ((m.year == year) && (strcasecmp(m.genre, genre) == 0)) {
 			counter++;
-			// printMovie(m); // DEBUG
 		} else {
 			continue;
 		}
@@ -257,16 +253,7 @@ void matrix(PtList list) {
 		}
 	}
 
-	// printMatrix
 	printMatrix(matrix);
-
-	// int counter = 0;
-	// for (int i=0; i<5; i++) {
-	// 	for (int j=0; j<8; j++) {
-	// 		counter += matrix[i][j];
-	// 	}
-	// }
-	// printf("Contagem matrix: %d \n", counter);
 
 }
 
@@ -289,7 +276,6 @@ void sameDir(PtList list) { // Funciona normalmente para vários diretores à ex
 		listGet(list, i, &movieIdMovie);
 		if (strcasecmp(movieIdMovie.id, movieId) == 0) {
 			movieIdRank = i;
-			printf("\nFOUND\n"); // DEBUG
 			break;
 		}
 	}
@@ -301,7 +287,7 @@ void sameDir(PtList list) { // Funciona normalmente para vários diretores à ex
 		}
 	}
 
-	printf("Following Movie: ");
+	printf("\nFollowing Movie: ");
 	printMovie(movieIdMovie);
 	
 
@@ -341,7 +327,6 @@ void sameDir(PtList list) { // Funciona normalmente para vários diretores à ex
 			printf("- ");
 			printMovie(directorMovie);
 		}
-		// listPrint(directorMovies);
 	}
 
 }
@@ -356,21 +341,12 @@ void top5(PtList list, PtMap map) {
 	PtList romance = listCreate(5);
 	PtList thriller = listCreate(5);
 
-	PtList noCategory = listCreate(5); // DEBUG
-
-	// listPrint(list); // DEBUG
-
 	int lSize;
 	listSize(list, &lSize);
-	// printf("\nlistSize: %d\n", lSize); // DEBUG
-
-	// int counter = 0; // DEBUG
 
 	for (int i=0; i<lSize; i++) {
 		Movie m;
 		listGet(list, i, &m);
-		// printf("Rank %d: ", counter++); // DEBUG
-		// printMovie(m); // DEBUG
 		if (strcasecmp(m.genre, "ACTION") == 0) {
 			listAdd(action, 0, m);
 		} else if (strcasecmp(m.genre, "ANIMATION") == 0) {
@@ -387,43 +363,8 @@ void top5(PtList list, PtMap map) {
 			listAdd(romance, 0, m);
 		} else if (strcasecmp(m.genre, "THRILLER") == 0) {
 			listAdd(thriller, 0, m);
-		} else {
-			listAdd(noCategory, 0, m);
 		}
 	}
-
-	int actionListSize; // DEBUG
-	int animationListSize; // DEBUG
-	int comedyListSize; // DEBUG
-	int dramaListSize; // DEBUG
-	int horrorListSize; // DEBUG
-	int musicalListSize; // DEBUG
-	int romanceListSize; // DEBUG
-	int thrillerListSize; // DEBUG
-	int noCategoryListSize; // DEBUG
-
-	listSize(action, &actionListSize); // DEBUG
-	listSize(animation, &animationListSize); // DEBUG
-	listSize(comedy, &comedyListSize); // DEBUG
-	listSize(drama, &dramaListSize); // DEBUG
-	listSize(horror, &horrorListSize); // DEBUG
-	listSize(musical, &musicalListSize); // DEBUG
-	listSize(romance, &romanceListSize); // DEBUG
-	listSize(thriller, &thrillerListSize); // DEBUG
-	listSize(noCategory, &noCategoryListSize); // DEBUG
-
-	printf("\nAction List Size: %d\n", actionListSize); // DEBUG
-	printf("Animation List Size: %d\n", animationListSize); // DEBUG
-	printf("Comedy List Size: %d\n", comedyListSize); // DEBUG
-	printf("Drama List Size: %d\n", dramaListSize); // DEBUG
-	printf("Horror List Size: %d\n", horrorListSize); // DEBUG
-	printf("Musical List Size: %d\n", musicalListSize); // DEBUG
-	printf("Romance List Size: %d\n", romanceListSize); // DEBUG
-	printf("Thriller List Size: %d\n", thrillerListSize); // DEBUG
-	printf("NoCategory List Size: %d\n\n", noCategoryListSize); // DEBUG
-
-	// listPrint(list); // DEBUG
-	// mapPrint(map); // DEBUG
 
 	char* categoryListsNames[] = {"ACTION", "ANIMATION", "COMEDY", "DRAMA", "HORROR", "MUSICAL", "ROMANCE", "THRILLER"};
 	PtList categoryLists[] = {action, animation, comedy, drama, horror, musical, romance, thriller};
@@ -443,7 +384,6 @@ void top5(PtList list, PtMap map) {
 	listDestroy(&musical);
 	listDestroy(&romance);
 	listDestroy(&thriller);
-	listDestroy(&noCategory);
 }
 
 void printTop5List(PtList list) {
@@ -485,17 +425,12 @@ void best5Selector(PtMap map, PtList *categoryList) {
 				bestRating = mRating;
 				bestMovie = m;
 				bestMovieRank = j;
-				// printPtMovie(bestMovie); // DEBUG
-				// printPtRating(bestRating); // DEBUG
 			}
 		}
 		
 		listRemove(*categoryList, bestMovieRank, bestMovie);
 		listAdd(temp, i, *bestMovie);
-		// printPtMovie(bestMovie); // DEBUG
-		// printPtRating(bestRating); // DEBUG
 	}
-	// listPrint(temp); // DEBUG
 	*categoryList = temp;
 	listDestroy(&temp);
 
@@ -534,16 +469,13 @@ void best5Selector(PtMap map, PtList *categoryList) {
 }
 
 void loadr(PtMap *map) {
-	char ratingsFileName[20] = "ratings.csv"; // DEBUG
 
-	// char ratingsFileName[20];
-	// printf("Por favor indique o nome do ficheiro de pontuações: ");
-	// fgets(ratingsFileName, 20, stdin);
-	// ratingsFileName[strlen(ratingsFileName) - 1] = '\0'; // Retirar caractere '\n'
-	// strcat(ratingsFileName, ".csv"); // Acrescentar extensão .csv a ratingsFileName
+	char ratingsFileName[20];
+	printf("Por favor indique o nome do ficheiro de pontuações: ");
+	fgets(ratingsFileName, 20, stdin);
+	ratingsFileName[strlen(ratingsFileName) - 1] = '\0'; // Retirar caractere '\n'
+	strcat(ratingsFileName, ".csv"); // Acrescentar extensão .csv a ratingsFileName
 
-	// PtMap tempMap = NULL;
-	// tempMap = mapCreate(10);
 	*map = mapCreate(10);
 
 	FILE *file = fopen(ratingsFileName, "r");
@@ -562,10 +494,7 @@ void loadr(PtMap *map) {
 		int votes[10];
 		double score;
 
-		// printf("%s", line); // DEBUG
-
 		tokens = split(line, 13, ";");
-
 		strcpy(movieId, tokens[0]);
 		maleVotes = atoi(tokens[1]);
 		femaleVotes = atoi(tokens[2]);
@@ -577,25 +506,10 @@ void loadr(PtMap *map) {
 		
 		score = calculateScore(votes);
 
-		
 		PtRating r = createRating(movieId, maleVotes, femaleVotes, votes, score);
-		// printf("%s\n", movieId); // DEBUG
-		// mapPut(tempMap, createNewKey(movieId), *r);
 		mapPut(*map, createNewKey(movieId), *r);
-
-		// printPtRating(r); // DEBUG
-
-		// printf("%d\n", ++ratingCounter); // DEBUG
-		// usleep(50000); // DEBUG
 	}
-	// mapPrint(tempMap); // DEBUG
-	// int size; // DEBUG
-	// mapSize(tempMap, &size); // DEBUG
-	
-	// *map = tempMap;
-	// mapDestroy(&tempMap);
 
-	// mapPrint(*map); // DEBUG
 	int size;
 	mapSize(*map, &size);
 	printf("\nForam importadas %d pontuações em memória com sucesso!!\n", size);
@@ -608,16 +522,13 @@ MapKey createNewKey(char *movieId) {
 }
 
 void loadm(PtList *list) {
-	char moviesFileName[20] = "movies.csv"; // DEBUG
 
-	// char moviesFileName[20];
-	// printf("\nPor favor indique o nome do ficheiro de filmes: ");
-	// fgets(moviesFileName, 20, stdin);
-	// moviesFileName[strlen(moviesFileName) - 1] = '\0'; // Retirar caractere '\n'
-	// strcat(moviesFileName, ".csv"); // Acrescentar extensão .csv a moviesFileName
+	char moviesFileName[20];
+	printf("\nPor favor indique o nome do ficheiro de filmes: ");
+	fgets(moviesFileName, 20, stdin);
+	moviesFileName[strlen(moviesFileName) - 1] = '\0'; // Retirar caractere '\n'
+	strcat(moviesFileName, ".csv"); // Acrescentar extensão .csv a moviesFileName
 
-	// PtList tempList = NULL;
-	// tempList = listCreate(10);
 	*list = listCreate(10);
 
 
@@ -640,41 +551,22 @@ void loadm(PtList *list) {
 		char director[50];
 
 		tokens = split(line, 7, ";");
-
 		strcpy(id, tokens[0]);
-		// printf("\n%s\n", id); // DEBUG
-
 		strcpy(title, tokens[1]);
-		// printf("%s\n", title); // DEBUG
-		
 		year = atoi(tokens[2]);
-		// printf("%d\n", year); // DEBUG
-
 		strcpy(genre, firstElementSelector(tokens[3]));
-		// printf("%s\n", genre); // DEBUG
-
 		duration = atoi(tokens[4]);
-		// printf("%d\n", duration); // DEBUG
-
 		strcpy(country, firstElementSelector(tokens[5]));
-		// printf("%s\n", country); // DEBUG
-
 		strcpy(director, firstElementSelector(tokens[6]));
 		removeChar(director, '\n'); // Remover caractere '\n' do elemento final da line
-		// printf("%s\n", director); // DEBUG
 
 		PtMovie m = createMovie(id, title, year, genre, duration, country, director);
 		listAdd(*list, movieCounter++, *m);
-
-		// printMovie(*m); // DEBUG
 	}
-	// *list = tempList;
-	// listDestroy(&tempList);
 
-	// listPrint(*list); // DEBUG
 	int size;
-	listSize(*list, &size); // DEBUG
-	printf("\nForam importados %d filmes em memória com sucesso!!\n", size); // DEBUG
+	listSize(*list, &size);
+	printf("\nForam importados %d filmes em memória com sucesso!!\n", size);
 }
 
 void removeChar(char *str, char c) {
