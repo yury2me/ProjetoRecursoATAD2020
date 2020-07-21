@@ -4,7 +4,7 @@ all:
 	make run
 
 compile: 
-	gcc -g -o prog main.c movie.c listElem.c listArrayList.c rating.c mapElem.c mapArrayList.c
+	gcc -g -o prog main.c movie.c listElem.c listArrayList.c rating.c mapElem.c mapArrayList.c commands.c
 
 run: 
 	./prog
