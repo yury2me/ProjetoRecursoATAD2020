@@ -38,6 +38,7 @@ void best5Selector(PtMap map, PtList *categoryList);
 void printTop5List(PtList list);
 void year(PtList list, PtMap map);
 void rating(PtList list, PtMap map);
+void country(PtList list, PtMap map);
 
 /*
 * Descrição do Programa
@@ -57,8 +58,7 @@ int main(int argc, char** argv) {
 
 	loadm(&list); // DEBUG
 	loadr(&map); // DEBUG
-	rating(list, map); // DEBUG
-	// top5(list, map); // DEBUG
+	country(list, map);
 
 
 	setlocale(LC_ALL, "PT");
@@ -96,7 +96,7 @@ int main(int argc, char** argv) {
 		}
 		else if (equalsStringIgnoreCase(command, "RATING")) {
 			rating(list, map);
-			printf("Comando RATING nao implementado.\n");
+			// printf("Comando RATING nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "SAMEDIR")) {
 			sameDir(list);
@@ -106,6 +106,7 @@ int main(int argc, char** argv) {
 			printf("Comando VOTERS nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "COUNTRY")) {
+			country(list, map);
 			printf("Comando COUNTRY nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "YEAR")) {
@@ -127,6 +128,25 @@ int main(int argc, char** argv) {
 	/* libertar memória e apresentar mensagem de saída. */
 
 	return (EXIT_SUCCESS);
+}
+
+void country(PtList list, PtMap map) {
+	char *countryName;
+	char* countryNames[100];
+
+	for (int i=0; i<100; i++) {
+		countryNames[i] = " ";
+	}
+
+	int countryNamesSize = 0;
+	int lSize;
+	PtMovie m = createEmptyMovie();
+	PtRating r = createEmptyRating();
+
+	listSize(list, &lSize);
+
+	
+
 }
 
 void rating(PtList list, PtMap map) {
