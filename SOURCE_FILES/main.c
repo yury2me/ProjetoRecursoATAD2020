@@ -229,20 +229,42 @@ int main(int argc, char** argv) {
 
 void country(PtList list, PtMap map) {
 	char *countryName;
-	char* countryNames[100];
-
-	for (int i=0; i<100; i++) {
-		countryNames[i] = " ";
-	}
-
-	int countryNamesSize = 0;
-	int lSize;
+	int lSize, tempSize, totalProducedMovies = 0;
+	double score = 0.0;
+	PtList temp = listCreate(10);
 	PtMovie m = createEmptyMovie();
-	PtRating r = createEmptyRating();
+	PtRating mRat = createEmptyRating();
 
 	listSize(list, &lSize);
 
-	
+	printf("\nIntroduza o nome do país sobre o qual pretende obter informação: ");
+	scanf(" %s", countryName);
+
+	for (int i=0; i<lSize; i++) {
+		listGet(list, i, m);
+		if (strcasecmp(countryName, m->country) == 0) {
+			listAdd(temp, 0, *m);
+		}
+	}
+
+	listSize(temp, &tempSize);
+	totalProducedMovies = tempSize;
+
+	if (tempSize == 0) {
+		printf("\nO país que solicitou não produziu nenhum filme.\n");
+	} else if (tempSize > 0) {
+
+		for (int i=0; i<tempSize; i++) {
+			listGet(temp, i, m);
+			mapGet(map, createNewKey(m->id), mRat);
+			score += mRat->score;
+		}
+		score /= totalProducedMovies;
+
+		printf("COUNTRY: %s\n", countryName);
+		printf("TOTAL PRODUCED MOVIES: %d", totalProducedMovies);
+		printf("AVERAGE SCORE: %g", score);
+	}
 
 }
 
