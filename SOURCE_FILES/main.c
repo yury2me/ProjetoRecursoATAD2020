@@ -135,6 +135,12 @@ void year(PtList list, PtMap map);
  * @param map Map of ratings
  */
 void rating(PtList list, PtMap map);
+/**
+ * @brief Given a country shows the total of produced movies and the average score.
+ * 
+ * @param list List of movies
+ * @param map Map of ratings
+ */
 void country(PtList list, PtMap map);
 
 /*
