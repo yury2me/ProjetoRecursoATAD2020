@@ -135,6 +135,7 @@ void year(PtList list, PtMap map);
  * @param map Map of ratings
  */
 void rating(PtList list, PtMap map);
+void country(PtList list, PtMap map);
 
 /*
 * Descrição do Programa
@@ -146,7 +147,7 @@ int main(int argc, char** argv) {
 	PtMap map = NULL;
 
 	/* interpretador de comandos */
-	char command[20] = "top5"; // DEBUG
+	char command[20]; // DEBUG
 	
 	// char command[20];
 	int quit = 0;
@@ -154,7 +155,7 @@ int main(int argc, char** argv) {
 
 	loadm(&list); // DEBUG
 	loadr(&map); // DEBUG
-	// top5(list, map); // DEBUG
+	country(list, map);
 
 
 	setlocale(LC_ALL, "PT");
@@ -192,7 +193,7 @@ int main(int argc, char** argv) {
 		}
 		else if (equalsStringIgnoreCase(command, "RATING")) {
 			rating(list, map);
-			printf("Comando RATING nao implementado.\n");
+			// printf("Comando RATING nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "SAMEDIR")) {
 			sameDir(list);
@@ -202,6 +203,7 @@ int main(int argc, char** argv) {
 			printf("Comando VOTERS nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "COUNTRY")) {
+			country(list, map);
 			printf("Comando COUNTRY nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "YEAR")) {
@@ -225,36 +227,60 @@ int main(int argc, char** argv) {
 	return (EXIT_SUCCESS);
 }
 
-void rating(PtList list, PtMap map) {
-	int lSize, tempListSize = 0;
-	double minScore, maxScore, mScore, mJScore, mJ1Score = 0.0;
-	PtMovie m = createEmptyMovie();
-	PtMovie mJ = createEmptyMovie();
-	PtMovie mJ1 = createEmptyMovie();
-	PtMovie temp = createEmptyMovie();
-	PtRating r = createEmptyRating();
-	PtRating ratJ = createEmptyRating();
-	PtRating ratJ1 = createEmptyRating();
-	PtList temp = listCreate(1);
+void country(PtList list, PtMap map) {
+	char *countryName;
+	char* countryNames[100];
 
-	while ((minScore < 0.0) || (minScore >= 10.0)) {
+	for (int i=0; i<100; i++) {
+		countryNames[i] = " ";
+	}
+
+	int countryNamesSize = 0;
+	int lSize;
+	PtMovie m = createEmptyMovie();
+	PtRating r = createEmptyRating();
+
+	listSize(list, &lSize);
+
+	
+
+}
+
+void rating(PtList list, PtMap map) {
+	int lSize, tempListSize, tLSize = 0;
+	double minScore, maxScore, mScore, mJScore, mMaxScore = 0.0;
+	PtMovie m = createEmptyMovie();
+	PtMovie mI = createEmptyMovie();
+	PtMovie mMax = createEmptyMovie();
+	PtMovie mJ = createEmptyMovie();
+	PtMovie mTemp = createEmptyMovie();
+	PtMovie trash = createEmptyMovie();
+	PtRating r = createEmptyRating();
+	PtRating ratI = createEmptyRating();
+	PtRating ratMax = createEmptyRating();
+	PtRating ratJ = createEmptyRating();
+	PtList listTemp = listCreate(1);
+
+	do {
 		printf("\nIntroduza o limite mínimo de pontuação: ");
-		scanf("%f", &minScore);
+		scanf("%lf", &minScore);
 		if (minScore < 0.0) {
 			printf("\nPor favor introduza um número maior ou igual a 0.0\n");
 		} else if (minScore >= 10.0) {
 			printf("\nPor favor introduza um número menor que 10.0\n");
 		}
-	}
-	while ((maxScore <= 0.0) || (maxScore > 10)) {
-		printf("\nIntroduza o limite máximo de pontuação: ");
-		scanf("%f", &maxScore);
+	} while ((minScore < 0.0) || (minScore >= 10.0));
+	// printf("min: %g", minScore); // DEBUG
+	do {
+		printf("Introduza o limite máximo de pontuação: ");
+		scanf("%lf", &maxScore);
 		if (maxScore <= 0.0) {
 			printf("\nPor favor introduza um número maior que 0.0\n");
 		} else if (maxScore > 10.0) {
 			printf("\nPor favor introduza um número menor ou igual a 10.0\n");
 		}
-	}
+	} while ((maxScore <= 0.0) || (maxScore > 10));
+	// printf("max: %g", maxScore); // DEBUG
 
 	listSize(list, &lSize);
 
@@ -263,31 +289,42 @@ void rating(PtList list, PtMap map) {
 		mapGet(map, createNewKey(m->id), r);
 		mScore = r->score;
 		if ((mScore >= minScore) && (mScore <= maxScore)) {
-			listAdd(temp, 0, *m);
+			listAdd(listTemp, 0, *m);
 		}
 	}
 
 	// Sort movies by score (and, in last case, alphabetically)
 	// BubbleSort
-	listSize(temp, &tempListSize);
-
-	// if (/*condition*/) {
-	// 	/*code*/
-	// }
-
-	for (int i=0; i<tempListSize; i++) {
+	listSize(listTemp, &tempListSize);
+	tLSize = tempListSize;
+	if (tempListSize > 25) {
+		tLSize = 25;
+	}
+	
+	printf("\nScore %g-%g:\n", minScore, maxScore);
+	for (int i=0; i<tLSize; i++) {
 		int maxIndex = i;
 		for (int j=i; j<tempListSize; j++) {
-			listGet(temp, j, mJ);
-			listGet(temp, j+1, mJ1);
+			// Procurar filme com maior pontuação
+			listGet(listTemp, i, mI);
+			listGet(listTemp, maxIndex, mMax);
+			listGet(listTemp, j, mJ);
+			mapGet(map, createNewKey(mI->id), ratI);
+			mapGet(map, createNewKey(mMax->id), ratMax);
 			mapGet(map, createNewKey(mJ->id), ratJ);
-			mapGet(map, createNewKey(mJ1->id), ratJ1);
 			mJScore = ratJ->score;
-			mJ1Score = ratJ1->score;
-			if (mJScore < mJ1Score) {
-				
+			mMaxScore = ratMax->score;
+			if ((mJScore == mMaxScore) && (strcasecmp(mJ->title, mMax->title) < 0)) { // Ordenar alfabeticamente no caso de terem a mesma pontuação
+				maxIndex = j;
+			} else if (mJScore > mMaxScore) {
+				maxIndex = j;
 			}
 		}
+		// Swap
+		listSet(listTemp, i, *mMax, mTemp);
+		listSet(listTemp, maxIndex, *mTemp, trash);
+		printPtMovie(mMax); // DEBUG
+		// printPtRating(ratMax); // DEBUG
 	}
 
 }
