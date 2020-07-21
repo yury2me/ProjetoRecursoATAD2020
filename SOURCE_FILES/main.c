@@ -142,7 +142,13 @@ void rating(PtList list, PtMap map);
  * @param map Map of ratings
  */
 void country(PtList list, PtMap map);
-
+/**
+ * @brief Clear values from
+ * 
+ * @param list List of movies
+ * @param map Map of ratings
+ */
+clear(PtList list,PtMap map);
 /*
 * Descrição do Programa
 */
@@ -189,7 +195,7 @@ int main(int argc, char** argv) {
 			// printf("Comando LOADR nao implementado.\n");
 		}
 		else if (equalsStringIgnoreCase(command, "CLEAR")) {
-			printf("Comando CLEAR nao implementado.\n");
+			clear(list, map);
 		}
 		else if (equalsStringIgnoreCase(command, "TOP5")) {
 			// loadm(&list); // DEBUG
@@ -917,4 +923,24 @@ void printCommandsMenu() {
 	printf("\nCommands\t- TOP5\n\t\t- RATING\n\t\t- SAMEDIR\n\t\t- VOTERS\n\t\t- COUNTRY\n\t\t- YEAR\n\t\t- MATRIX\n\t\t- PREDICTION\n");
 	printf("\nExit Command\t- QUIT\n\n");
 	printf("COMMAND> ");
+}
+
+clear(PtList list,PtMap map){
+	int sizeList = 0;
+    listSize(list, &sizeList);
+	if(sizeList>0){
+		printf("Number of records deleted from Movies - %d\n",sizeList);
+		listClear(list);
+	}else{
+		printf("There were no records from Movies to be deleted\n");
+	}
+
+	int sizeMap = 0;
+    listSize(map, &sizeMap);
+	if(sizeList>0){
+		printf("Number of records deleted from Ratings - %d\n",sizeMap);
+		listClear(map);
+	}else{
+		printf("There were no records from Ratings to be deleted\n");
+	}
 }
