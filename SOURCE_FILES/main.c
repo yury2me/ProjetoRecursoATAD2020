@@ -57,6 +57,7 @@ int main(int argc, char** argv) {
 
 	loadm(&list); // DEBUG
 	loadr(&map); // DEBUG
+	rating(list, map); // DEBUG
 	// top5(list, map); // DEBUG
 
 
@@ -143,7 +144,7 @@ void rating(PtList list, PtMap map) {
 	PtRating ratJ = createEmptyRating();
 	PtList listTemp = listCreate(1);
 
-	while ((minScore < 0.0) || (minScore >= 10.0)) {
+	do {
 		printf("\nIntroduza o limite mínimo de pontuação: ");
 		scanf("%lf", &minScore);
 		if (minScore < 0.0) {
@@ -151,18 +152,18 @@ void rating(PtList list, PtMap map) {
 		} else if (minScore >= 10.0) {
 			printf("\nPor favor introduza um número menor que 10.0\n");
 		}
-	}
-	printf("min: %.1lf", minScore);
-	while ((maxScore <= 0.0) || (maxScore > 10)) {
-		printf("\nIntroduza o limite máximo de pontuação: ");
+	} while ((minScore < 0.0) || (minScore >= 10.0));
+	// printf("min: %g", minScore); // DEBUG
+	do {
+		printf("Introduza o limite máximo de pontuação: ");
 		scanf("%lf", &maxScore);
 		if (maxScore <= 0.0) {
 			printf("\nPor favor introduza um número maior que 0.0\n");
 		} else if (maxScore > 10.0) {
 			printf("\nPor favor introduza um número menor ou igual a 10.0\n");
 		}
-	}
-	printf("max: %.1lf", maxScore);
+	} while ((maxScore <= 0.0) || (maxScore > 10));
+	// printf("max: %g", maxScore); // DEBUG
 
 	listSize(list, &lSize);
 
@@ -182,7 +183,8 @@ void rating(PtList list, PtMap map) {
 	if (tempListSize > 25) {
 		tLSize = 25;
 	}
-
+	
+	printf("\nScore %g-%g:\n", minScore, maxScore);
 	for (int i=0; i<tLSize; i++) {
 		int maxIndex = i;
 		for (int j=i; j<tempListSize; j++) {
@@ -204,8 +206,8 @@ void rating(PtList list, PtMap map) {
 		// Swap
 		listSet(listTemp, i, *mMax, mTemp);
 		listSet(listTemp, maxIndex, *mTemp, trash);
-		printPtMovie(mMax);
-		printPtRating(ratMax);
+		printPtMovie(mMax); // DEBUG
+		// printPtRating(ratMax); // DEBUG
 	}
 
 }
