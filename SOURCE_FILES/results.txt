@@ -1,0 +1,131 @@
+﻿>TOP5
+DRAMA
+id: tt5717184 | title:The Colour of Darkness 		| year: 2017 | genre: Drama 	| duration: 130 	| country: Australia 	| director: Girish Makwana
+id: tt5963218 | title:Aloko Udapadi			| year: 2017 | genre: Drama 	| duration: 113 	| country: Sri Lanka	| director: Chathra Weeraman
+id: tt8718580 | title:Eghantham 			| year: 2018 | genre: Drama 	| duration: 125 	| country: India 	| director: Arsel Arumugam
+id: tt7504214 | title:AA BB KK 				| year: 2018 | genre: Drama 	| duration: 121 	| country: India	| director: Ramkumar Shedge
+id: tt5872692 | title:Qlub Imwegggha 			| year: 2014 | genre: Drama 	| duration: 183 	| country: Malta	| director: Charles Meli
+
+ANIMATION
+id: tt4168188 | title:Chaar Sahibzaade 			| year: 2014 | genre: Animation | duration: 135 	| country: India	| director: Harry Baweja
+id: tt1753729 | title:Doraleous and Associates 		| year: 2010 | genre: Animation | duration: 100 	| country: USA	 	| director: Brent Triplett
+id: tt6545212 | title:Leera the Soulmate 		| year: 2018 | genre: Animation | duration: 104 	| country: India 	| director: Sumnash Sri Kaljai
+id: tt2966696 | title:The Silent e 			| year: 2013 | genre: Animation | duration: 74 		| country: USA	 	| director: Christopher DeMaci
+id: tt0137204 | title:Joe Finds Grace 			| year: 2017 | genre: Animation | duration: 83 		| country: Canada 	| director: Anthony Harrison
+	
+COMEDY
+id: tt5712718 | title:A Petty Bourgeois Dream 		| year: 2016 | genre: Comedy 	| duration: 104 	| country: Lebanon	| director: Mazen Khaled
+id: tt9343826 | title:Ananthu V/S Nusrath 		| year: 2018 | genre: Comedy 	| duration: 149 	| country: India 	| director: Sudheer Shanbhogue
+id: tt5951832 | title:Pretty Outrageous 		| year: 2017 | genre: Comedy 	| duration: 75  	| country: USA 		| director: Elizabeth Blake-Thomas
+id: tt6915176 | title:Erra Buss 			| year: 2014 | genre: Comedy	| duration: 140 	| country: India 	| director: Narayana Rao Dasari
+id: tt7433762 | title:Innocent 				| year: 2017 | genre: Comedy	| duration: 88  	| country: Canada 	| director: Marc-AndrÃ© Lavoie
+
+_____________________________________________________________________________________________________________________________________________________________________________________________
+>RATING
+Score 9-9.5>:
+id: tt4717534 | title:Golden Treasure 			| year: 2016 | genre: Action 	| duration: 110 	| country: Mongolia 	| director: Uranchimeg Urtnasan
+id: tt1463488 | title:Raju Maharaju 			| year: 2009 | genre: Family 	| duration: 155 	| country: India 	| director: Shankaranath Durga
+id: tt5597792 | title:Attack 				| year: 2016 | genre: Action 	| duration: 158 	| country: India 	| director: Ram Gopal Varma
+id: tt4701630 | title:Mosagallaku Mosagadu 		| year: 2015 | genre: Action 	| duration: 127 	| country: India 	| director: Bose Nelluri
+id: tt5951832 | title:Pretty Outrageous 		| year: 2017 | genre: Comedy 	| duration: 75  	| country: USA 		| director: Elizabeth Blake-Thomas
+id: tt6915176 | title:Erra Buss 			| year: 2014 | genre: Comedy 	| duration: 140 	| country: India 	| director: Narayana Rao Dasari
+id: tt5813916 | title:Dag II 				| year: 2016 | genre: Action 	| duration: 135 	| country: Turkey 	| director: Alper Caglar
+id: tt1432956 | title:Mesthri 				| year: 2009 | genre: Drama 	| duration: 137 	| country: India 	| director: 
+id: tt7380226 | title:Okkadu Migiladu 			| year: 2017 | genre: Action 	| duration: 141 	| country: India 	| director: Ajay Andrews Nuthakki
+id: tt6594842 | title:Gunturodu 			| year: 2017 | genre: Action 	| duration: 142 	| country: India 	| director: S.K. Satya
+id: tt4730224 | title:An Hour to Kill 			| year: 2018 | genre: Action 	| duration: 96 		| country: USA 		| director: Aaron K. Carter
+id: tt7191668 | title:The Rally 			| year: 2017 | genre: Action	| duration: 130 	| country: India 	| director: Deepak Anand
+id: tt7433762 | title:Innocent 				| year: 2017 | genre: Comedy 	| duration: 88 		| country: Canada 	| director: Marc-André Lavoie
+id: tt8024712 | title:Yowis Ben 			| year: 2018 | genre: Comedy 	| duration: 99 		| country: Indonesia 	| director: Fajar Nugros
+id: tt1781948 | title:Vastadu Naa Raju 			| year: 2011 | genre: Action 	| duration: 135 	| country: India 	| director: Hemant Madhukar
+id: tt8866064 | title:10 Days Before the Wedding 	| year: 2018 | genre: Comedy 	| duration: 120 	| country: Yemen 	| director: Amr Gamal
+id: tt2640460 | title:Kurmanjan datka 			| year: 2014 | genre: Action 	| duration: 135 	| country: Kyrgyzstan 	| director: Sadyk Sher-Niyaz
+id: tt1838563 | title:Iran Zendan 			| year: 2010 | genre: Drama 	| duration: 70 		| country: Germany 	| director: Daryush Shokof
+id: tt3135074 | title:Mr. Rudolpho's Jubilee 		| year: 2017 | genre: Comedy 	| duration: 110 	| country: USA 		| director: Michael Glover
+id: tt5295670 | title:Mama Manchu Alludu Kanchu 	| year: 2015 | genre: Action 	| duration: 136 	| country: India 	| director: Sreenivass Redde
+id: tt8332808 | title:One Must Fall 			| year: 2018 | genre: Comedy 	| duration: 96 		| country: USA 		| director: Antonio Pantoja
+id: tt3594160 | title:Trapped Abroad 			| year: 2014 | genre: Action 	| duration: 100 	| country: Mongolia 	| director: Janchivdorj Sengedorj
+id: tt5241840 | title:The Hollywouldn'ts 		| year: 2016 | genre: Comedy 	| duration: 112 	| country: USA 		| director: Darius Stevens Wilhere
+id: tt2101405 | title:New Prime 			| year: 2011 | genre: Action	| duration: 60 		| country: USA 		| director: Olan Rogers
+id: tt3590482 | title:Bey Yaar 				| year: 2014 | genre: Comedy 	| duration: 150 	| country: India 	| director: Abhishek Jain
+_____________________________________________________________________________________________________________________________________________________________________________________________
+>SAMEDIR tt1130884
+Following Movie: id: tt1130884 | title:Shutter Island 	| year: 2010 | genre: Mystery 	| duration: 138 	| country: USA 		| director: Martin Scorsese
+
+Other movies directed by Martin Scorsese:
+- id: tt0490215 | title:Silence 			| year: 2016 | genre: Drama 	| duration: 161 	| country: USA 		| director: Martin Scorsese
+- id: tt0993846 | title:The Wolf of Wall Street 	| year: 2013 | genre: Biography | duration: 180 	| country: USA		| director: Martin Scorsese
+- id: tt0970179 | title:Hugo 				| year: 2011 | genre: Drama 	| duration: 126 	| country: UK 		| director: Martin Scorsese
+
+
+>SAMEDIR tt2058024
+Following Movie: id: tt2058024 | title:Nasi Lemak 2.0 	| year: 2011 | genre: Comedy 	| duration: 90 		| country: Malaysia | director: Namewee
+
+
+No other films by the same director.            
+_____________________________________________________________________________________________________________________________________________________________________________________________
+>VOTERS
+ACTION: Females-11.8%, Males-66.3%, unknown-21.9%, total votes-108515937
+ANIMATION: Females-18%, Males-58.7%, unknown-23.3%, total votes-18297986
+COMEDY: Females-20.1%, Males-60.4%, unknown-19.5%, total votes-48676232
+DRAMA: Females-19.4%, Males-59.9%, unknown-20.7%, total votes-45929347
+HORROR: Females-16%, Males-63%, unknown-21%, total votes-12649663
+MUSICAL: Females-18.3%, Males-46.5%, unknown-35.2%, total votes-18931
+ROMANCE: Females-18.6%, Males-62%, unknown-19.4%, total votes-447724
+THRILLER: Females-15.2%, Males-64.5%, unknown-20.3%, total votes-432811
+_____________________________________________________________________________________________________________________________________________________________________________________________
+>COUNTRY
+
+COUNTRY: Portugal
+TOTAL PRODUCED MOVIES: 94
+AVERAGE SCORE: 6.1
+_____________________________________________________________________________________________________________________________________________________________________________________________
+>YEAR
+
+2016
+ACTION:
+	AVERAGE SCORE: 5.9
+	TOTAL PRODUCED MOVIES: 477
+ANIMATION:
+	AVERAGE SCORE: 6.7
+	TOTAL PRODUCED MOVIES: 101
+COMEDY:
+	AVERAGE SCORE: 6
+	TOTAL PRODUCED MOVIES: 819
+DRAMA:
+	AVERAGE SCORE: 6.4
+	TOTAL PRODUCED MOVIES: 883
+HORROR:
+	AVERAGE SCORE: 4.9
+	TOTAL PRODUCED MOVIES: 221
+MUSICAL:
+	AVERAGE SCORE: 8.5
+	TOTAL PRODUCED MOVIES: 5
+ROMANCE:
+	AVERAGE SCORE: 6.7
+	TOTAL PRODUCED MOVIES: 27
+THRILLER:
+	AVERAGE SCORE: 5.7
+	TOTAL PRODUCED MOVIES: 65
+_____________________________________________________________________________________________________________________________________________________________________________________________
+>MATRIX
+
+	 Drama	 Horror	 Comedy	 Animation  Thriller  Action   Romance	 Musical
+2014	  412	  246	  825	    60	       53	402	 28	    3
+2015	  438	  242	  769	    72	       54       409	 26	    2
+2016	  447	  215	  808	    73	       65	478	 26	    5
+2017	  428	  249	  758	    77	       72	466	 28	    5
+2018	  364	  221	  738	    74	       83	452	 34	    2
+
+_____________________________________________________________________________________________________________________________________________________________________________________________
+>PREDICTION
+
+2019 Predictions:					
+Drama 		- 386	
+Horror 		- 222	
+Comedy 		- 724	
+Animation 	- 81	
+Thriller 	- 89
+Action 		- 489
+Romance 	- 33	
+Musical 	- 4
